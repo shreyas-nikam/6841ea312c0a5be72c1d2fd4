@@ -1,33 +1,49 @@
 
-# QuCreate Streamlit Lab
+# Investment Base Pairs Lab - Streamlit App
 
-This repository contains a Streamlit application for demonstrating the features and capabilities of the QuCreate platform.
+This repository contains a Streamlit application for exploring the performance of signal-driven pair portfolios.  The application demonstrates the decomposition of returns as described in the research paper "Investment Base Pairs" using a synthetic dataset.
 
-## Features
-- Streamlit sidebar with a company logo.
-- Template for easy development.
-- Placeholder for adding custom code.
+## Business Logic
+
+The application allows users to interactively explore the relationship between different asset classes, signal types, and the five key drivers of pair portfolio performance:
+
+1. **Own-asset predictability:**  How well a signal for a single asset predicts its own future returns.
+2. **Cross-asset predictability:** How well the signal of one asset predicts the returns of another.
+3. **Signal correlation:** The correlation between the signals of pairs of assets.
+4. **Signal mean imbalance:** The difference in average signal values between paired assets.
+5. **Signal variance imbalance:** The difference in the volatility of signals between paired assets.
+
+Users can select asset classes, signal types, and view interactive charts showing the contribution of each driver to overall portfolio return.  A comparison with benchmark strategies is also possible.
 
 ## Getting Started
 
-### Prerequisites
-- Python 3.8 or later
-- Streamlit installed (see `requirements.txt`).
+1. **Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   ```
 
-### Installation
-1. Clone the repository
-2. Install dependencies:
-`pip install -r requirements.txt`
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Running the Application
-1. Run the Streamlit app:
+3. **Run the application:**
+   ```bash
+   streamlit run app.py
+   ```
 
-### Development
-1. Modify the `app.py` file to add your custom code.
-2. Use the placeholder section (`# Code goes here`) to add new functionality.
+4. **(Optional) Build and run with Docker:**
+   ```bash
+   docker build -t investment-base-pairs .
+   docker run -p 8501:8501 investment-base-pairs
+   ```  Then access the app at `http://localhost:8501`.
 
-### Deployment
-- Deploy your Streamlit app using Streamlit Sharing, Docker, or any other platform supporting Python web applications.
+##  Key Formulae
 
-## License
-© 2025 QuantUniversity. All Rights Reserved. Educational use only. For licensing details, please contact QuantUniversity.
+*(Insert key formulae here from the technical specifications)*
+
+## References
+
+* Investment Base Pairs Research Paper (Link to paper)
+
+
