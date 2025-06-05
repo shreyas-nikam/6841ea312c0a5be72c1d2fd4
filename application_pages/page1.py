@@ -3,11 +3,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+
 def run_page1():
     st.header("Data Exploration")
     data = pd.DataFrame({
-        'Asset Class': ['Equities', 'Bonds', 'Currencies', 'Commodities'] * 3,
-        'Signal Type': ['Value', 'Momentum', 'Carry'] * 4,
+        'Asset Class': list(itertools.islice(itertools.cycle(asset_classes), ROW_COUNT)),
+        'Signal Type': list(itertools.islice(itertools.cycle(signal_types),  ROW_COUNT)),
         'Return': [0.1, 0.05, 0.15, 0.12, 0.08, 0.18, 0.09, 0.06, 0.14, 0.1, 0.07, 0.16, 0.11, 0.04, 0.17],
         'Volatility': [0.1, 0.08, 0.12, 0.09, 0.06, 0.15, 0.07, 0.05, 0.11, 0.08, 0.09, 0.13, 0.07, 0.03, 0.14],
         'Sharpe Ratio': [1.0, 0.625, 1.25, 1.33, 1.33, 1.2, 1.28, 1.2, 1.27, 1.25, 0.77, 1.23, 1.57, 1.33, 1.21],
@@ -19,7 +20,9 @@ def run_page1():
         'Unexplained Effect': [0.05, 0.02, 0.08, 0.07, 0.04, 0.1, 0.05, 0.03, 0.06, 0.06, 0.03, 0.09, 0.08, 0.01, 0.11]
     })
     st.dataframe(data)
-    asset_class = st.selectbox("Select Asset Class", data['Asset Class'].unique())
+    asset_class = st.selectbox(
+        "Select Asset Class", data['Asset Class'].unique())
     filtered_data = data[data['Asset Class'] == asset_class]
-    fig = px.scatter(filtered_data, x="Return", y="Volatility", hover_data=['Signal Type'])
+    fig = px.scatter(filtered_data, x="Return",
+                     y="Volatility", hover_data=['Signal Type'])
     st.plotly_chart(fig)

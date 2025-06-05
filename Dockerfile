@@ -12,7 +12,7 @@ COPY . .
 
 # ---- config -------------------------------------------------
 ENV PORT=8501
-EXPOSE 8501                     # must be a concrete number
+EXPOSE 8501                    
 
 # ---- entrypoint ---------------------------------------------
 # shell form expands $PORT; headless avoids opening browser
