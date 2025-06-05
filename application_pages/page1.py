@@ -2,10 +2,14 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import itertools
 
 
 def run_page1():
     st.header("Data Exploration")
+    asset_classes = ['Equity', 'Fixed Income', 'Commodities', 'Forex', 'Crypto']
+    signal_types = ['Momentum', 'Mean Reversion', 'Trend Following', 'Arbitrage', 'Sentiment']
+    ROW_COUNT = 15  # Number of rows to display in the DataFrame
     data = pd.DataFrame({
         'Asset Class': list(itertools.islice(itertools.cycle(asset_classes), ROW_COUNT)),
         'Signal Type': list(itertools.islice(itertools.cycle(signal_types),  ROW_COUNT)),
