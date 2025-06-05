@@ -16,4 +16,4 @@ EXPOSE 8501                     # must be a concrete number
 
 # ---- entrypoint ---------------------------------------------
 # shell form expands $PORT; headless avoids opening browser
-CMD bash -c "streamlit run app.py --server.port $PORT --server.headless true"
+CMD bash -c "streamlit run app.py --server.port 8501 --server.headless true"
